@@ -1,0 +1,2 @@
+demo_pub_sub:helloworld
+-DCATKIN_DEVEL_PREFIX=/home/wangkai/learn_ros/devel -DCMAKE_INSTALL_PREFIX=/home/wangkai/learn_ros/install -G Unix Makefiles

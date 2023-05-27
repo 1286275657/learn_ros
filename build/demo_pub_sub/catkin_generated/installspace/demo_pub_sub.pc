@@ -1,0 +1,8 @@
+prefix=/home/wangkai/learn_ros/install
+
+Name: demo_pub_sub
+Description: Description of demo_pub_sub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
