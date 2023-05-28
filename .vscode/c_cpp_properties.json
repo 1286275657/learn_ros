@@ -9,7 +9,8 @@
         "/opt/ros/noetic/include/**",
         "/home/wangkai/learn_ros/src/demo_pub_sub/include/**",
         "/home/wangkai/learn_ros/src/helloworld/include/**",
-        "/usr/include/**"
+        "/usr/include/**",
+        "/home/wangkai/learn_ros/devel/include/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

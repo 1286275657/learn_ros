@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(demo_pub_sub_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(demo_pub_sub_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/wangkai/learn_ros/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/wangkai/learn_ros/install/lib;/home/wangkai/learn_ros/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(demo_pub_sub_EXPORTED_TARGETS "")
+set(demo_pub_sub_EXPORTED_TARGETS "demo_pub_sub_generate_messages_cpp;demo_pub_sub_generate_messages_eus;demo_pub_sub_generate_messages_lisp;demo_pub_sub_generate_messages_nodejs;demo_pub_sub_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${demo_pub_sub_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${demo_pub_sub_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "roscpp;rospy;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -211,10 +211,10 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(demo_pub_sub_LIBRARIES ${demo_pub_sub_LIBRARIES})
 
   _list_append_unique(demo_pub_sub_LIBRARY_DIRS ${${demo_pub_sub_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(demo_pub_sub_EXPORTED_TARGETS ${${demo_pub_sub_dep}_EXPORTED_TARGETS})
+  list(APPEND demo_pub_sub_EXPORTED_TARGETS ${${demo_pub_sub_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "demo_pub_sub-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${demo_pub_sub_DIR}/${extra})
