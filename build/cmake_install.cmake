@@ -133,6 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/wangkai/learn_ros/build/gtest/cmake_install.cmake")
   include("/home/wangkai/learn_ros/build/demo_pub_sub/cmake_install.cmake")
   include("/home/wangkai/learn_ros/build/helloworld/cmake_install.cmake")
+  include("/home/wangkai/learn_ros/build/srv_client_server/cmake_install.cmake")
 
 endif()
 

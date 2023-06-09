@@ -7,3 +7,4 @@
 subdirs("gtest")
 subdirs("demo_pub_sub")
 subdirs("helloworld")
+subdirs("srv_client_server")

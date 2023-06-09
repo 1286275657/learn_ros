@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/wangkai/learn_ros/devel/lib;/home/wangkai/learn_ros/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/wangkai/learn_ros/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(demo_pub_sub_LIBRARIES ${demo_pub_sub_LIBRARIES})
 
   _list_append_unique(demo_pub_sub_LIBRARY_DIRS ${${demo_pub_sub_dep}_LIBRARY_DIRS})
-  list(APPEND demo_pub_sub_EXPORTED_TARGETS ${${demo_pub_sub_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(demo_pub_sub_EXPORTED_TARGETS ${${demo_pub_sub_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "demo_pub_sub-msg-extras.cmake")

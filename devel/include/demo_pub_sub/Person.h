@@ -8,7 +8,7 @@
 
 #include <string>
 #include <vector>
-#include <map>
+#include <memory>
 
 #include <ros/types.h>
 #include <ros/serialization.h>
@@ -37,7 +37,7 @@ struct Person_
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _name_type;
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _name_type;
   _name_type name;
 
    typedef uint16_t _age_type;
@@ -201,7 +201,7 @@ struct Printer< ::demo_pub_sub::Person_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::demo_pub_sub::Person_<ContainerAllocator>& v)
   {
     s << indent << "name: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.name);
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.name);
     s << indent << "age: ";
     Printer<uint16_t>::stream(s, indent + "  ", v.age);
     s << indent << "height: ";

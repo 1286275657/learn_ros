@@ -1,2 +1,2 @@
-demo_pub_sub:helloworld
+demo_pub_sub:helloworld:srv_client_server
 -DCATKIN_DEVEL_PREFIX=/home/wangkai/learn_ros/devel -DCMAKE_INSTALL_PREFIX=/home/wangkai/learn_ros/install -G Unix Makefiles
