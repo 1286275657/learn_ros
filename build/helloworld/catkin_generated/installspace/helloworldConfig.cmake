@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(helloworld_LIBRARIES ${helloworld_LIBRARIES})
 
   _list_append_unique(helloworld_LIBRARY_DIRS ${${helloworld_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(helloworld_EXPORTED_TARGETS ${${helloworld_dep}_EXPORTED_TARGETS})
+  list(APPEND helloworld_EXPORTED_TARGETS ${${helloworld_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

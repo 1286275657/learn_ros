@@ -88,3 +88,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/srv_client_server" TYPE FILE FILES "/home/wangkai/learn_ros/src/srv_client_server/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/srv_client_server" TYPE PROGRAM FILES "/home/wangkai/learn_ros/build/srv_client_server/catkin_generated/installspace/demo_server_py.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/srv_client_server" TYPE PROGRAM FILES "/home/wangkai/learn_ros/build/srv_client_server/catkin_generated/installspace/demo_client_py.py")
+endif()
+

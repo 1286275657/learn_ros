@@ -81,9 +81,10 @@
 /home/wangkai/learn_ros/build/helloworld/CMakeFiles/edit_cache.dir
 /home/wangkai/learn_ros/build/helloworld/CMakeFiles/test.dir
 /home/wangkai/learn_ros/build/helloworld/CMakeFiles/helloworld_c.dir
-/home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/install/strip.dir
 /home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/rebuild_cache.dir
 /home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/edit_cache.dir
+/home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/install/strip.dir
+/home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/demo_client.dir
 /home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/srv_client_server_generate_messages.dir
 /home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/srv_client_server_gencpp.dir
 /home/wangkai/learn_ros/build/srv_client_server/CMakeFiles/srv_client_server_generate_messages_nodejs.dir

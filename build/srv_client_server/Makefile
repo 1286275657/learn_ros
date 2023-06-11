@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/wangkai/learn_ros/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -89,6 +77,18 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -166,6 +166,21 @@ preinstall/fast:
 depend:
 	cd /home/wangkai/learn_ros/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+srv_client_server/CMakeFiles/demo_client.dir/rule:
+	cd /home/wangkai/learn_ros/build && $(MAKE) -f CMakeFiles/Makefile2 srv_client_server/CMakeFiles/demo_client.dir/rule
+.PHONY : srv_client_server/CMakeFiles/demo_client.dir/rule
+
+# Convenience name for target.
+demo_client: srv_client_server/CMakeFiles/demo_client.dir/rule
+
+.PHONY : demo_client
+
+# fast build rule for target.
+demo_client/fast:
+	cd /home/wangkai/learn_ros/build && $(MAKE) -f srv_client_server/CMakeFiles/demo_client.dir/build.make srv_client_server/CMakeFiles/demo_client.dir/build
+.PHONY : demo_client/fast
 
 # Convenience name for target.
 srv_client_server/CMakeFiles/srv_client_server_generate_messages.dir/rule:
@@ -362,6 +377,33 @@ srv_client_server_genpy/fast:
 	cd /home/wangkai/learn_ros/build && $(MAKE) -f srv_client_server/CMakeFiles/srv_client_server_genpy.dir/build.make srv_client_server/CMakeFiles/srv_client_server_genpy.dir/build
 .PHONY : srv_client_server_genpy/fast
 
+src/demo_client.o: src/demo_client.cpp.o
+
+.PHONY : src/demo_client.o
+
+# target to build an object file
+src/demo_client.cpp.o:
+	cd /home/wangkai/learn_ros/build && $(MAKE) -f srv_client_server/CMakeFiles/demo_client.dir/build.make srv_client_server/CMakeFiles/demo_client.dir/src/demo_client.cpp.o
+.PHONY : src/demo_client.cpp.o
+
+src/demo_client.i: src/demo_client.cpp.i
+
+.PHONY : src/demo_client.i
+
+# target to preprocess a source file
+src/demo_client.cpp.i:
+	cd /home/wangkai/learn_ros/build && $(MAKE) -f srv_client_server/CMakeFiles/demo_client.dir/build.make srv_client_server/CMakeFiles/demo_client.dir/src/demo_client.cpp.i
+.PHONY : src/demo_client.cpp.i
+
+src/demo_client.s: src/demo_client.cpp.s
+
+.PHONY : src/demo_client.s
+
+# target to generate assembly for a file
+src/demo_client.cpp.s:
+	cd /home/wangkai/learn_ros/build && $(MAKE) -f srv_client_server/CMakeFiles/demo_client.dir/build.make srv_client_server/CMakeFiles/demo_client.dir/src/demo_client.cpp.s
+.PHONY : src/demo_client.cpp.s
+
 src/demo_server.o: src/demo_server.cpp.o
 
 .PHONY : src/demo_server.o
@@ -395,9 +437,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... install/strip"
+	@echo "... demo_client"
 	@echo "... srv_client_server_generate_messages"
 	@echo "... srv_client_server_gencpp"
 	@echo "... srv_client_server_generate_messages_nodejs"
@@ -415,6 +458,9 @@ help:
 	@echo "... demo_server"
 	@echo "... srv_client_server_generate_messages_py"
 	@echo "... srv_client_server_genpy"
+	@echo "... src/demo_client.o"
+	@echo "... src/demo_client.i"
+	@echo "... src/demo_client.s"
 	@echo "... src/demo_server.o"
 	@echo "... src/demo_server.i"
 	@echo "... src/demo_server.s"

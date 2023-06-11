@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(srv_client_server_LIBRARIES ${srv_client_server_LIBRARIES})
 
   _list_append_unique(srv_client_server_LIBRARY_DIRS ${${srv_client_server_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(srv_client_server_EXPORTED_TARGETS ${${srv_client_server_dep}_EXPORTED_TARGETS})
+  list(APPEND srv_client_server_EXPORTED_TARGETS ${${srv_client_server_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "srv_client_server-msg-extras.cmake")

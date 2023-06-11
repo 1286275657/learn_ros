@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(demo_pub_sub_LIBRARIES ${demo_pub_sub_LIBRARIES})
 
   _list_append_unique(demo_pub_sub_LIBRARY_DIRS ${${demo_pub_sub_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(demo_pub_sub_EXPORTED_TARGETS ${${demo_pub_sub_dep}_EXPORTED_TARGETS})
+  list(APPEND demo_pub_sub_EXPORTED_TARGETS ${${demo_pub_sub_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "demo_pub_sub-msg-extras.cmake")

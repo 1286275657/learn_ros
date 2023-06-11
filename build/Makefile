@@ -701,6 +701,19 @@ helloworld_c/fast:
 .PHONY : helloworld_c/fast
 
 #=============================================================================
+# Target rules for targets named demo_client
+
+# Build rule for target.
+demo_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo_client
+.PHONY : demo_client
+
+# fast build rule for target.
+demo_client/fast:
+	$(MAKE) -f srv_client_server/CMakeFiles/demo_client.dir/build.make srv_client_server/CMakeFiles/demo_client.dir/build
+.PHONY : demo_client/fast
+
+#=============================================================================
 # Target rules for targets named srv_client_server_generate_messages
 
 # Build rule for target.
@@ -923,6 +936,7 @@ help:
 	@echo "... demo_pub_sub_genpy"
 	@echo "... demo_pub_person"
 	@echo "... helloworld_c"
+	@echo "... demo_client"
 	@echo "... srv_client_server_generate_messages"
 	@echo "... srv_client_server_gencpp"
 	@echo "... srv_client_server_generate_messages_nodejs"
